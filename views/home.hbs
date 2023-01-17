@@ -1,0 +1,96 @@
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Home</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 10px 20px;
+      padding-bottom: 30px;
+      border: 1px solid black;
+      border-radius: 2px;
+    }
+
+    .main {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      background-color: cornflowerblue;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 35px;
+      border: 2.5px solid rgb(0, 0, 0);
+      width: 8cm;
+      height: 13cm;
+      border-radius: 10px;
+      padding: 10px 0;
+      background-color: #ADD8E6
+    }
+
+    input {
+      width: 200px;
+    }
+
+    label {
+      margin-top: 10px;
+      width: 200px;
+      font-weight:bold;
+    }
+
+    input[type='submit'] {
+      margin-top: 10px;
+      background-color: beige;
+      border-radius: 10px;
+      font-weight:bold;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class='main'>
+        <div class="container">
+            <h1>Welcome {{user}}</h1>
+            <h2>Create a Repository</h2>
+            <form action='/create_repo' method='POST' id="form1">
+                <label for='name'>Repo Name:</label>
+                <input type='text' name='repoName' id='name' required="required" pattern="[A-Za-z0-9]{1,20}" />
+                <input type='hidden' name='username' value={{user}} />
+                <input type='submit' value="Create Repository" />
+            </form>
+            <h2>Delete a Repository</h2>
+            <form action='/delete_repo' method='POST'>
+                <label for='name'>Repo Name:</label>
+                <input type='text' name='repoName' id='name' required="required" pattern="[A-Za-z0-9]{1,20}" />
+                <input type='hidden' name='username' value={{user}} />
+                <input type='submit' value="Delete Repository" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

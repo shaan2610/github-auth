@@ -1,0 +1,31 @@
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Repo Deleted</title>
+  <script>
+    let time = 1;
+    setInterval(() => {
+      document.getElementsByClassName('time')[0].innerHTML = `Redirecting ...`;
+      if (time == 0) {
+        let link = document.createElement('a');
+        let username = "{{username}}";
+        link.href = `http://localhost:5008/home?username=${username}`;
+        link.click();
+      }
+      time--;
+      console.log(time);
+    },
+      1000);
+  </script>
+</head>
+
+<body>
+  Repo -
+  {{repoName}}
+  Deleted!<div class='time'>Redirecting ...</div>
+</body>
+
+</html>
